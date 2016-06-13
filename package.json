@@ -1,0 +1,39 @@
+{
+  "name": "pin-bowling",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "develop": "export NODE_ENV=development;babel-watch ./source/index.js",
+    "start": "export NODE_ENV=production; babel-node ./source/index.js",
+    "build": "export NODE_ENV=production; mkdir ./dist; babel --copy-files --compact --minified --source-maps false  ./source/index.js -o ./dist/bundle.js | browserify -o dist/bundle.js",
+    "test": "export NODE_ENV=development; mocha --compilers js:babel-register  --require mocha $(find source -name \"*.spec.js\")",
+    "test-closure": "export NODE_ENV=production; mocha --compilers js:babel-register  --require mocha $(find source -name \"*.spec.js\")",
+    "test-watch": "export NODE_ENV=development; mocha --compilers js:babel-register --watch  --require mocha $(find source -name \"*.spec.js\")"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^6.0.4",
+    "babel-jest": "^6.0.1",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-register": "^6.8.0",
+    "babel-watch": "^2.0.2",
+    "browserify": "^13.0.1",
+    "chai": "^3.5.0",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-react": "^5.1.1",
+    "eslint-plugin-tdd": "^0.5.0",
+    "faker": "^3.1.0",
+    "mocha": "^2.5.3",
+    "tern-node-express": "^0.4.0"
+  },
+  "description": ""
+}
